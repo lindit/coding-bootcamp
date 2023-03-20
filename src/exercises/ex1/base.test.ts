@@ -19,7 +19,7 @@ describe("test exercise 1", () => {
       { name: "Fries", quantity: 1, price: 3 },
       { name: "Drink", quantity: 1, price: 2 },
     ];
-    expect(orderAndBuy(items)).toBe(20);
+    expect(orderAndBuy(items)).toBe(18);
     expect(orderAndBuy([])).toBe(0);
   });
 });

@@ -51,7 +51,7 @@ const exampleItems: IItem[] = [
  * loop through all items calculate the sum by price * quantity
  * after you have the total sum add a tip by using calculateTotalBill
  * with a GOOD Service
- * @egs orderAndBuy(exampleItems) // returns 20
+ * @example orderAndBuy(exampleItems) // returns 18 (2 * 5 + 1 * 3 + 1 * 2 = 16 + 2 = 18)
  * @returns {number} The calculated total bill amount.
  * */
 function orderAndBuy(items: IItem[]) {}
