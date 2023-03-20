@@ -1,5 +1,8 @@
 /**
  * Calculates the tip amount based on the quality of service provided.
+ * Good service = 20% tip
+ * Regular service = 10% tip
+ * Bad service = 0% tip
  * @example calculateTip(100, "good") // returns 20
  * @example calculateTip(100, "regular") // returns 10
  * @example calculateTip(100, "bad") // returns 0
@@ -8,12 +11,14 @@
  * @returns {number} The calculated tip amount.
  */
 type TQualityOfService = "good" | "regular" | "bad";
+
 function calculateTip(amount: number, qualityOfService: TQualityOfService) {
   //TODO: your code here
 }
 
 /**
  * Calculates the total bill amount based on the quality of service provided.
+ * HINT: SHOULD USE calculateTip function
  * @example calculateTotalBill(100, "good") // returns 120
  * @example calculateTotalBill(100, "regular") // returns 110
  * @example calculateTotalBill(100, "bad") // returns 100
@@ -28,16 +33,27 @@ function calculateTotalBill(
   //TODO: Call calculateTip and add the result to the amount
 }
 
-/**
- * Calculates the number of digits in a number.
- * @example calcDigits(123) // returns 3
- * @example calcDigits(1234) // returns 4
- * @example calcDigits(12345) // returns 5
- * @param {number} num - The number to calculate the digits for.
- * @returns {number} The number of digits in the number.
- */
-function calcDigits(num: number) {
-  //TODO: your code here AND DON'T USE .toString().length!!!
+//####################################################################
+
+interface IItem {
+  name: string;
+  quantity: number;
+  price: number;
 }
 
-export { calculateTip, calculateTotalBill, calcDigits };
+const exampleItems: IItem[] = [
+  { name: "Burger", quantity: 2, price: 5 },
+  { name: "Fries", quantity: 1, price: 3 },
+  { name: "Drink", quantity: 1, price: 2 },
+];
+
+/**
+ * loop through all items calculate the sum by price * quantity
+ * after you have the total sum add a tip by using calculateTotalBill
+ * with a GOOD Service
+ * @egs orderAndBuy(exampleItems) // returns 20
+ * @returns {number} The calculated total bill amount.
+ * */
+function orderAndBuy(items: IItem[]) {}
+
+export { calculateTip, calculateTotalBill, orderAndBuy, IItem };

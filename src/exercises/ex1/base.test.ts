@@ -1,4 +1,4 @@
-import { calcDigits, calculateTip, calculateTotalBill } from "./base";
+import { orderAndBuy, calculateTip, calculateTotalBill, IItem } from "./base";
 
 describe("test exercise 1", () => {
   it("should calculate tip", function () {
@@ -13,9 +13,13 @@ describe("test exercise 1", () => {
     expect(calculateTotalBill(100, "bad")).toBe(100);
   });
 
-  it("should calculate number of digits", function () {
-    expect(calcDigits(123)).toBe(3);
-    expect(calcDigits(1234)).toBe(4);
-    expect(calcDigits(12345)).toBe(5);
+  it("should calculate total bill", function () {
+    const items: IItem[] = [
+      { name: "Burger", quantity: 2, price: 5 },
+      { name: "Fries", quantity: 1, price: 3 },
+      { name: "Drink", quantity: 1, price: 2 },
+    ];
+    expect(orderAndBuy(items)).toBe(20);
+    expect(orderAndBuy([])).toBe(0);
   });
 });
