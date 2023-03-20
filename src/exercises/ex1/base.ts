@@ -37,7 +37,7 @@ function calculateTotalBill(
  * @returns {number} The number of digits in the number.
  */
 function calcDigits(num: number) {
-  return num.toString().length;
+  //TODO: your code here AND DON'T USE .toString().length!!!
 }
 
 export { calculateTip, calculateTotalBill, calcDigits };
