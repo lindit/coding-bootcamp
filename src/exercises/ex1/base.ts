@@ -13,7 +13,15 @@
 type TQualityOfService = "good" | "regular" | "bad";
 
 function calculateTip(amount: number, qualityOfService: TQualityOfService) {
-  //TODO: your code here
+  if (qualityOfService == "good"){
+    return amount * 0.2;
+  }
+  else if (qualityOfService == "regular"){
+    return amount * 0.1;
+  }
+  else {
+    return 0;
+  }
 }
 
 /**
@@ -30,8 +38,10 @@ function calculateTotalBill(
   amount: number,
   qualityOfService: TQualityOfService
 ) {
-  //TODO: Call calculateTip and add the result to the amount
+  const tip = calculateTip(amount, qualityOfService);
+  return amount + tip;
 }
+calculateTotalBill(20, "good");
 
 //####################################################################
 
@@ -54,6 +64,14 @@ const exampleItems: IItem[] = [
  * @example orderAndBuy(exampleItems) // returns 18 (2 * 5 + 1 * 3 + 1 * 2 = 16 + 2 = 18)
  * @returns {number} The calculated total bill amount.
  * */
-function orderAndBuy(items: IItem[]) {}
+function orderAndBuy(items: IItem[]) {
+  let sum = 0
+  for (let item of items){
+    sum = sum + item.quantity * item.price;
+  }
+  calculateTotalBill(sum, "good");
+  sum = sum + calculateTip(sum, "good");
+  return sum
+}
 
 export { calculateTip, calculateTotalBill, orderAndBuy, IItem };
